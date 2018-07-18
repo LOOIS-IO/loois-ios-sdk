@@ -3,6 +3,7 @@ PODS:
     - SipHash (~> 1.2)
   - CryptoSwift (0.10.0)
   - libsodium (1.0.12)
+  - Nimble (7.1.3)
   - PromiseKit (6.3.4):
     - PromiseKit/CorePromise (= 6.3.4)
     - PromiseKit/Foundation (= 6.3.4)
@@ -12,6 +13,7 @@ PODS:
     - PromiseKit/CorePromise
   - PromiseKit/UIKit (6.3.4):
     - PromiseKit/CorePromise
+  - Quick (1.3.1)
   - Result (3.0.0)
   - secp256k1_ios (0.1.3)
   - SipHash (1.2.2)
@@ -24,6 +26,8 @@ PODS:
     - secp256k1_ios (~> 0.1.3)
 
 DEPENDENCIES:
+  - Nimble
+  - Quick
   - web3swift (from `https://github.com/LOOIS-IO/web3swift.git`)
 
 SPEC REPOS:
@@ -31,7 +35,9 @@ SPEC REPOS:
     - BigInt
     - CryptoSwift
     - libsodium
+    - Nimble
     - PromiseKit
+    - Quick
     - Result
     - secp256k1_ios
     - SipHash
@@ -49,12 +55,14 @@ SPEC CHECKSUMS:
   BigInt: 76b5dfdfa3e2e478d4ffdf161aeede5502e2742f
   CryptoSwift: 6c778d69282bed3b4e975ff97a79d074f20bb011
   libsodium: 9a8faa5ef2fa0d2d57bd7f7d79bf8fb7c1a9f0ea
+  Nimble: 2839b01d1b31f6a6a7777a221f0d91cf52e8e27b
   PromiseKit: e1425568123ec844a944c93f2bcb29d511d39cf5
+  Quick: d17304d58d0d169dd0bd1c6e5c28e3318de32a1a
   Result: 1b3e431f37cbcd3ad89c6aa9ab0ae55515fae3b6
   secp256k1_ios: ac9ef04e761f43c58012b28548afa91493761f17
   SipHash: fad90a4683e420c52ef28063063dbbce248ea6d4
   web3swift: f95dfd47c53b6c3afda834360a4e63965125e629
 
-PODFILE CHECKSUM: a0866f1793b2c5c85792008209f318880ceac83d
+PODFILE CHECKSUM: 828f73da59a885d855a573b1d0a55dd0df353806
 
 COCOAPODS: 1.5.3
