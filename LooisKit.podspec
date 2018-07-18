@@ -24,7 +24,7 @@ end
 
 s.subspec 'Base' do |base|
 base.source_files = 'LooisKit/Classes/Base'
-base.dependency 'web3swift', '~> 0.8.0'
+base.dependency 'looisweb3swift'
 end
 
 
