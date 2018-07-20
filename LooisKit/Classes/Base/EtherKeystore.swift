@@ -59,7 +59,11 @@ class EtherKeystore: Keystore {
         return completion(.failure(KeystoreError.duplicateAccount))
       }
     case let .privateKey(privateKey, newPassword):
-      let privateKeyData = PrivateKey(data: Data(hexString: privateKey)!)!
+      guard let data = Data(hexString: privateKey),
+        let privateKeyData = PrivateKey(data: data) else {
+        completion(.failure(KeystoreError.invalidPrivateKey))
+        return
+      }
       DispatchQueue.global(qos: .userInitiated).async {
         do {
           let wallet = try self.keyStore.import(privateKey: privateKeyData, password: newPassword, coin: .ethereum)
