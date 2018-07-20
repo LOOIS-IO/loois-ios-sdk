@@ -53,7 +53,7 @@ class EtherKeystore: Keystore {
         return completion(.failure(KeystoreError.invalidMnemonicPhrase))
       }
       do {
-        let wallet = try keyStore.import(mnemonic: string, passphrase: newPassword, encryptPassword: "", derivationPath: Coin.ethereum.derivationPath(at: 0))
+        let wallet = try keyStore.import(mnemonic: string, passphrase: "", encryptPassword: newPassword, derivationPath: Coin.ethereum.derivationPath(at: 0))
         completion(.success(wallet))
       } catch {
         return completion(.failure(KeystoreError.duplicateAccount))
