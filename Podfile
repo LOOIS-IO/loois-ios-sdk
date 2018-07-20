@@ -7,6 +7,8 @@ target 'LooisKit' do
 
   # Pods for LooisKit
   pod 'web3swift', :git => 'https://github.com/LOOIS-IO/web3swift.git'
+  pod 'TrustCore', :git=>'https://github.com/TrustWallet/trust-core', :branch=>'master'
+  pod 'TrustKeystore', :git=>'https://github.com/TrustWallet/trust-keystore', :branch=>'master'
 
   target 'LooisKitTests' do
     inherit! :search_paths

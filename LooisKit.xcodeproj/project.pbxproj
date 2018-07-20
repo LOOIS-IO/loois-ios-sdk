@@ -10,10 +10,15 @@
 		6B767F65907C202C12271525 /* Pods_LooisKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8042424B20190F9A074E2F8C /* Pods_LooisKit.framework */; };
 		972BF475DFFABBFE7CB4FC23 /* Pods_LooisKitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47B72078EA3D182E5B0644C9 /* Pods_LooisKitTests.framework */; };
 		FB32693220FDE8490037ED22 /* LooisKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB32692820FDE8490037ED22 /* LooisKit.framework */; };
-		FB32693720FDE8490037ED22 /* LooisKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB32693620FDE8490037ED22 /* LooisKitTests.swift */; };
 		FB32693920FDE8490037ED22 /* LooisKit.h in Headers */ = {isa = PBXBuildFile; fileRef = FB32692B20FDE8490037ED22 /* LooisKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FB32694420FDE8920037ED22 /* Signer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB32694320FDE8920037ED22 /* Signer.swift */; };
 		FB32694720FDE8E10037ED22 /* Relay.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB32694620FDE8E10037ED22 /* Relay.swift */; };
+		FB49B0A621017A2A00359AC6 /* EtherKeystoreSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB49B0A521017A2A00359AC6 /* EtherKeystoreSpec.swift */; };
+		FB49B0A92101837F00359AC6 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB49B0A82101837F00359AC6 /* Time.swift */; };
+		FB648DC620FF4941009F8A1B /* Keystore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB648DC520FF4941009F8A1B /* Keystore.swift */; };
+		FB7E0FB421007F6F0091BBAB /* BuildType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7E0FB321007F6F0091BBAB /* BuildType.swift */; };
+		FB7E0FB621007FEA0091BBAB /* KeystoreError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7E0FB521007FEA0091BBAB /* KeystoreError.swift */; };
+		FB7E0FB9210096F60091BBAB /* EtherKeystore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7E0FB8210096F60091BBAB /* EtherKeystore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,10 +42,15 @@
 		FB32692B20FDE8490037ED22 /* LooisKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LooisKit.h; sourceTree = "<group>"; };
 		FB32692C20FDE8490037ED22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FB32693120FDE8490037ED22 /* LooisKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LooisKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FB32693620FDE8490037ED22 /* LooisKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LooisKitTests.swift; sourceTree = "<group>"; };
 		FB32693820FDE8490037ED22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FB32694320FDE8920037ED22 /* Signer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Signer.swift; sourceTree = "<group>"; };
 		FB32694620FDE8E10037ED22 /* Relay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Relay.swift; sourceTree = "<group>"; };
+		FB49B0A521017A2A00359AC6 /* EtherKeystoreSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EtherKeystoreSpec.swift; sourceTree = "<group>"; };
+		FB49B0A82101837F00359AC6 /* Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
+		FB648DC520FF4941009F8A1B /* Keystore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keystore.swift; sourceTree = "<group>"; };
+		FB7E0FB321007F6F0091BBAB /* BuildType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildType.swift; sourceTree = "<group>"; };
+		FB7E0FB521007FEA0091BBAB /* KeystoreError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeystoreError.swift; sourceTree = "<group>"; };
+		FB7E0FB8210096F60091BBAB /* EtherKeystore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EtherKeystore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,7 +127,7 @@
 		FB32693520FDE8490037ED22 /* LooisKitTests */ = {
 			isa = PBXGroup;
 			children = (
-				FB32693620FDE8490037ED22 /* LooisKitTests.swift */,
+				FB49B0A421017A1800359AC6 /* Core */,
 				FB32693820FDE8490037ED22 /* Info.plist */,
 			);
 			path = LooisKitTests;
@@ -127,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				FB32694320FDE8920037ED22 /* Signer.swift */,
+				FB7E0FB8210096F60091BBAB /* EtherKeystore.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -142,10 +153,38 @@
 		FB32694820FDEC460037ED22 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				FB49B0A72101810B00359AC6 /* Utils */,
+				FB7E0FB7210096D90091BBAB /* Core */,
 				FB32694520FDE8B60037ED22 /* RelayAPI */,
 				FB32694220FDE8510037ED22 /* Base */,
 			);
 			path = Classes;
+			sourceTree = "<group>";
+		};
+		FB49B0A421017A1800359AC6 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				FB49B0A521017A2A00359AC6 /* EtherKeystoreSpec.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		FB49B0A72101810B00359AC6 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				FB49B0A82101837F00359AC6 /* Time.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		FB7E0FB7210096D90091BBAB /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				FB648DC520FF4941009F8A1B /* Keystore.swift */,
+				FB7E0FB321007F6F0091BBAB /* BuildType.swift */,
+				FB7E0FB521007FEA0091BBAB /* KeystoreError.swift */,
+			);
+			path = Core;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -270,6 +309,9 @@
 				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/SipHash/SipHash.framework",
+				"${BUILT_PRODUCTS_DIR}/TrezorCrypto/TrezorCrypto.framework",
+				"${BUILT_PRODUCTS_DIR}/TrustCore/TrustCore.framework",
+				"${BUILT_PRODUCTS_DIR}/TrustKeystore/TrustKeystore.framework",
 				"${BUILT_PRODUCTS_DIR}/libsodium/libsodium.framework",
 				"${BUILT_PRODUCTS_DIR}/secp256k1_ios/secp256k1_ios.framework",
 				"${BUILT_PRODUCTS_DIR}/web3swift/web3swift.framework",
@@ -283,6 +325,9 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SipHash.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TrezorCrypto.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TrustCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TrustKeystore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/libsodium.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/secp256k1_ios.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/web3swift.framework",
@@ -335,7 +380,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB7E0FB421007F6F0091BBAB /* BuildType.swift in Sources */,
+				FB648DC620FF4941009F8A1B /* Keystore.swift in Sources */,
+				FB49B0A92101837F00359AC6 /* Time.swift in Sources */,
 				FB32694420FDE8920037ED22 /* Signer.swift in Sources */,
+				FB7E0FB621007FEA0091BBAB /* KeystoreError.swift in Sources */,
+				FB7E0FB9210096F60091BBAB /* EtherKeystore.swift in Sources */,
 				FB32694720FDE8E10037ED22 /* Relay.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -344,7 +394,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB32693720FDE8490037ED22 /* LooisKitTests.swift in Sources */,
+				FB49B0A621017A2A00359AC6 /* EtherKeystoreSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -538,6 +588,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 735FD6WCKP;
 				INFOPLIST_FILE = LooisKitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -557,6 +608,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 735FD6WCKP;
 				INFOPLIST_FILE = LooisKitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

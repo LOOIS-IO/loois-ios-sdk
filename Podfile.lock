@@ -17,6 +17,15 @@ PODS:
   - Result (3.0.0)
   - secp256k1_ios (0.1.3)
   - SipHash (1.2.2)
+  - TrezorCrypto (0.0.6)
+  - TrustCore (0.0.7):
+    - BigInt
+    - TrezorCrypto (~> 0.0.6)
+  - TrustKeystore (0.4.1):
+    - BigInt
+    - CryptoSwift
+    - TrezorCrypto (~> 0.0.6)
+    - TrustCore
   - web3swift (1.0.0):
     - BigInt (~> 3.1.0)
     - CryptoSwift (~> 0.10.0)
@@ -28,6 +37,8 @@ PODS:
 DEPENDENCIES:
   - Nimble
   - Quick
+  - TrustCore (from `https://github.com/TrustWallet/trust-core`, branch `master`)
+  - TrustKeystore (from `https://github.com/TrustWallet/trust-keystore`, branch `master`)
   - web3swift (from `https://github.com/LOOIS-IO/web3swift.git`)
 
 SPEC REPOS:
@@ -41,12 +52,25 @@ SPEC REPOS:
     - Result
     - secp256k1_ios
     - SipHash
+    - TrezorCrypto
 
 EXTERNAL SOURCES:
+  TrustCore:
+    :branch: master
+    :git: https://github.com/TrustWallet/trust-core
+  TrustKeystore:
+    :branch: master
+    :git: https://github.com/TrustWallet/trust-keystore
   web3swift:
     :git: https://github.com/LOOIS-IO/web3swift.git
 
 CHECKOUT OPTIONS:
+  TrustCore:
+    :commit: 4caee499a817638ce666b0c4448734cf933912f7
+    :git: https://github.com/TrustWallet/trust-core
+  TrustKeystore:
+    :commit: 30feafc123885a580b9f0b73ea8f6b9bcca4693f
+    :git: https://github.com/TrustWallet/trust-keystore
   web3swift:
     :commit: 4e55b79ed8f85b7ef8b10bcd23d91ebd98272edd
     :git: https://github.com/LOOIS-IO/web3swift.git
@@ -61,8 +85,11 @@ SPEC CHECKSUMS:
   Result: 1b3e431f37cbcd3ad89c6aa9ab0ae55515fae3b6
   secp256k1_ios: ac9ef04e761f43c58012b28548afa91493761f17
   SipHash: fad90a4683e420c52ef28063063dbbce248ea6d4
+  TrezorCrypto: bea2dab002f9a5fe885df004694b9ece52dc088b
+  TrustCore: 6c7deb45f03664d650da712bb5a19b33df0534a6
+  TrustKeystore: c54b52ade9c97d31d23ded9ae2518c62dd73b5fe
   web3swift: f95dfd47c53b6c3afda834360a4e63965125e629
 
-PODFILE CHECKSUM: 828f73da59a885d855a573b1d0a55dd0df353806
+PODFILE CHECKSUM: 56334ffe47d2173c3975454de1eb21fff3543f90
 
 COCOAPODS: 1.5.3
