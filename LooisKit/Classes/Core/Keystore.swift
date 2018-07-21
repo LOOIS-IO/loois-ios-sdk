@@ -12,11 +12,9 @@ import Result
 
 protocol Keystore {
   
-  typealias Completion = (Result<Wallet, KeystoreError>) -> Void
-  
   var keysDirectory: URL { get }
   
-  func buildWallet(type: BuildType, completion: @escaping Completion)
-  func exportWallet()
+  func buildWallet(type: BuildType, completion: @escaping (Result<Wallet, KeystoreError>) -> Void)
+  func exportWallet(type: ExportType, completion: @escaping (Result<String, KeystoreError>) -> Void)
   
 }

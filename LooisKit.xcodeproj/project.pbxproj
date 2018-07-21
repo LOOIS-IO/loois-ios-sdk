@@ -13,8 +13,12 @@
 		FB32693920FDE8490037ED22 /* LooisKit.h in Headers */ = {isa = PBXBuildFile; fileRef = FB32692B20FDE8490037ED22 /* LooisKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FB32694420FDE8920037ED22 /* Signer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB32694320FDE8920037ED22 /* Signer.swift */; };
 		FB32694720FDE8E10037ED22 /* Relay.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB32694620FDE8E10037ED22 /* Relay.swift */; };
-		FB49B0A621017A2A00359AC6 /* EtherKeystoreSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB49B0A521017A2A00359AC6 /* EtherKeystoreSpec.swift */; };
+		FB49B0A621017A2A00359AC6 /* EtherKeystoreBuildSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB49B0A521017A2A00359AC6 /* EtherKeystoreBuildSpec.swift */; };
 		FB49B0A92101837F00359AC6 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB49B0A82101837F00359AC6 /* Time.swift */; };
+		FB5949992102D0610061045A /* Wallet+Loois.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5949982102D0610061045A /* Wallet+Loois.swift */; };
+		FB59499B2102E3730061045A /* ExportType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB59499A2102E3730061045A /* ExportType.swift */; };
+		FB59499D2102E4D70061045A /* DispatchQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB59499C2102E4D70061045A /* DispatchQueue.swift */; };
+		FB59499F2102E57E0061045A /* EtherKeystoreExportSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB59499E2102E57E0061045A /* EtherKeystoreExportSpec.swift */; };
 		FB648DC620FF4941009F8A1B /* Keystore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB648DC520FF4941009F8A1B /* Keystore.swift */; };
 		FB7E0FB421007F6F0091BBAB /* BuildType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7E0FB321007F6F0091BBAB /* BuildType.swift */; };
 		FB7E0FB621007FEA0091BBAB /* KeystoreError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7E0FB521007FEA0091BBAB /* KeystoreError.swift */; };
@@ -45,8 +49,12 @@
 		FB32693820FDE8490037ED22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FB32694320FDE8920037ED22 /* Signer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Signer.swift; sourceTree = "<group>"; };
 		FB32694620FDE8E10037ED22 /* Relay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Relay.swift; sourceTree = "<group>"; };
-		FB49B0A521017A2A00359AC6 /* EtherKeystoreSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EtherKeystoreSpec.swift; sourceTree = "<group>"; };
+		FB49B0A521017A2A00359AC6 /* EtherKeystoreBuildSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EtherKeystoreBuildSpec.swift; sourceTree = "<group>"; };
 		FB49B0A82101837F00359AC6 /* Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
+		FB5949982102D0610061045A /* Wallet+Loois.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Wallet+Loois.swift"; sourceTree = "<group>"; };
+		FB59499A2102E3730061045A /* ExportType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportType.swift; sourceTree = "<group>"; };
+		FB59499C2102E4D70061045A /* DispatchQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchQueue.swift; sourceTree = "<group>"; };
+		FB59499E2102E57E0061045A /* EtherKeystoreExportSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EtherKeystoreExportSpec.swift; sourceTree = "<group>"; };
 		FB648DC520FF4941009F8A1B /* Keystore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keystore.swift; sourceTree = "<group>"; };
 		FB7E0FB321007F6F0091BBAB /* BuildType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildType.swift; sourceTree = "<group>"; };
 		FB7E0FB521007FEA0091BBAB /* KeystoreError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeystoreError.swift; sourceTree = "<group>"; };
@@ -164,7 +172,8 @@
 		FB49B0A421017A1800359AC6 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				FB49B0A521017A2A00359AC6 /* EtherKeystoreSpec.swift */,
+				FB49B0A521017A2A00359AC6 /* EtherKeystoreBuildSpec.swift */,
+				FB59499E2102E57E0061045A /* EtherKeystoreExportSpec.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -173,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				FB49B0A82101837F00359AC6 /* Time.swift */,
+				FB59499C2102E4D70061045A /* DispatchQueue.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -182,7 +192,9 @@
 			children = (
 				FB648DC520FF4941009F8A1B /* Keystore.swift */,
 				FB7E0FB321007F6F0091BBAB /* BuildType.swift */,
+				FB59499A2102E3730061045A /* ExportType.swift */,
 				FB7E0FB521007FEA0091BBAB /* KeystoreError.swift */,
+				FB5949982102D0610061045A /* Wallet+Loois.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -383,10 +395,13 @@
 				FB7E0FB421007F6F0091BBAB /* BuildType.swift in Sources */,
 				FB648DC620FF4941009F8A1B /* Keystore.swift in Sources */,
 				FB49B0A92101837F00359AC6 /* Time.swift in Sources */,
+				FB59499D2102E4D70061045A /* DispatchQueue.swift in Sources */,
 				FB32694420FDE8920037ED22 /* Signer.swift in Sources */,
 				FB7E0FB621007FEA0091BBAB /* KeystoreError.swift in Sources */,
 				FB7E0FB9210096F60091BBAB /* EtherKeystore.swift in Sources */,
 				FB32694720FDE8E10037ED22 /* Relay.swift in Sources */,
+				FB59499B2102E3730061045A /* ExportType.swift in Sources */,
+				FB5949992102D0610061045A /* Wallet+Loois.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -394,7 +409,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB49B0A621017A2A00359AC6 /* EtherKeystoreSpec.swift in Sources */,
+				FB49B0A621017A2A00359AC6 /* EtherKeystoreBuildSpec.swift in Sources */,
+				FB59499F2102E57E0061045A /* EtherKeystoreExportSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// 钱包构建类型
 public enum BuildType {
   case create(newPassword: String)
   case keystore(string: String, password: String, newPassword: String)
