@@ -10,6 +10,7 @@ import Foundation
 import TrustKeystore
 import TrustCore
 import Result
+import BigInt
 
 class EtherKeystore: Keystore {
     

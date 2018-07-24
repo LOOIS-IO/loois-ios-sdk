@@ -13,8 +13,11 @@
 		FB32693920FDE8490037ED22 /* LooisKit.h in Headers */ = {isa = PBXBuildFile; fileRef = FB32692B20FDE8490037ED22 /* LooisKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FB32694420FDE8920037ED22 /* Signer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB32694320FDE8920037ED22 /* Signer.swift */; };
 		FB32694720FDE8E10037ED22 /* Relay.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB32694620FDE8E10037ED22 /* Relay.swift */; };
+		FB3D0C2B2107585000B2C9E0 /* HomesteadSigner.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3D0C2A2107585000B2C9E0 /* HomesteadSigner.swift */; };
+		FB3D0C2E21075B9D00B2C9E0 /* FunctionRawEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3D0C2D21075B9D00B2C9E0 /* FunctionRawEncoder.swift */; };
+		FB3D0C30210762E400B2C9E0 /* RawTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3D0C2F210762E400B2C9E0 /* RawTransaction.swift */; };
+		FB45602721070EA1002F3DD3 /* EtherKeystoreSignSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB45602621070EA1002F3DD3 /* EtherKeystoreSignSpec.swift */; };
 		FB49B0A621017A2A00359AC6 /* EtherKeystoreBuildSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB49B0A521017A2A00359AC6 /* EtherKeystoreBuildSpec.swift */; };
-		FB49B0A92101837F00359AC6 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB49B0A82101837F00359AC6 /* Time.swift */; };
 		FB5949992102D0610061045A /* Wallet+Loois.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5949982102D0610061045A /* Wallet+Loois.swift */; };
 		FB59499B2102E3730061045A /* ExportType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB59499A2102E3730061045A /* ExportType.swift */; };
 		FB59499D2102E4D70061045A /* DispatchQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB59499C2102E4D70061045A /* DispatchQueue.swift */; };
@@ -49,8 +52,11 @@
 		FB32693820FDE8490037ED22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FB32694320FDE8920037ED22 /* Signer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Signer.swift; sourceTree = "<group>"; };
 		FB32694620FDE8E10037ED22 /* Relay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Relay.swift; sourceTree = "<group>"; };
+		FB3D0C2A2107585000B2C9E0 /* HomesteadSigner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomesteadSigner.swift; sourceTree = "<group>"; };
+		FB3D0C2D21075B9D00B2C9E0 /* FunctionRawEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionRawEncoder.swift; sourceTree = "<group>"; };
+		FB3D0C2F210762E400B2C9E0 /* RawTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawTransaction.swift; sourceTree = "<group>"; };
+		FB45602621070EA1002F3DD3 /* EtherKeystoreSignSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EtherKeystoreSignSpec.swift; sourceTree = "<group>"; };
 		FB49B0A521017A2A00359AC6 /* EtherKeystoreBuildSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EtherKeystoreBuildSpec.swift; sourceTree = "<group>"; };
-		FB49B0A82101837F00359AC6 /* Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
 		FB5949982102D0610061045A /* Wallet+Loois.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Wallet+Loois.swift"; sourceTree = "<group>"; };
 		FB59499A2102E3730061045A /* ExportType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportType.swift; sourceTree = "<group>"; };
 		FB59499C2102E4D70061045A /* DispatchQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchQueue.swift; sourceTree = "<group>"; };
@@ -144,8 +150,13 @@
 		FB32694220FDE8510037ED22 /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				FB32694320FDE8920037ED22 /* Signer.swift */,
+				FB7E0FB321007F6F0091BBAB /* BuildType.swift */,
+				FB59499A2102E3730061045A /* ExportType.swift */,
+				FB7E0FB521007FEA0091BBAB /* KeystoreError.swift */,
+				FB3D0C2D21075B9D00B2C9E0 /* FunctionRawEncoder.swift */,
 				FB7E0FB8210096F60091BBAB /* EtherKeystore.swift */,
+				FB3D0C2A2107585000B2C9E0 /* HomesteadSigner.swift */,
+				FB3D0C2F210762E400B2C9E0 /* RawTransaction.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -174,6 +185,7 @@
 			children = (
 				FB49B0A521017A2A00359AC6 /* EtherKeystoreBuildSpec.swift */,
 				FB59499E2102E57E0061045A /* EtherKeystoreExportSpec.swift */,
+				FB45602621070EA1002F3DD3 /* EtherKeystoreSignSpec.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -181,7 +193,6 @@
 		FB49B0A72101810B00359AC6 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				FB49B0A82101837F00359AC6 /* Time.swift */,
 				FB59499C2102E4D70061045A /* DispatchQueue.swift */,
 			);
 			path = Utils;
@@ -190,10 +201,8 @@
 		FB7E0FB7210096D90091BBAB /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				FB32694320FDE8920037ED22 /* Signer.swift */,
 				FB648DC520FF4941009F8A1B /* Keystore.swift */,
-				FB7E0FB321007F6F0091BBAB /* BuildType.swift */,
-				FB59499A2102E3730061045A /* ExportType.swift */,
-				FB7E0FB521007FEA0091BBAB /* KeystoreError.swift */,
 				FB5949982102D0610061045A /* Wallet+Loois.swift */,
 			);
 			path = Core;
@@ -318,15 +327,11 @@
 				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
 				"${BUILT_PRODUCTS_DIR}/BigInt/BigInt.framework",
 				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/SipHash/SipHash.framework",
 				"${BUILT_PRODUCTS_DIR}/TrezorCrypto/TrezorCrypto.framework",
 				"${BUILT_PRODUCTS_DIR}/TrustCore/TrustCore.framework",
 				"${BUILT_PRODUCTS_DIR}/TrustKeystore/TrustKeystore.framework",
-				"${BUILT_PRODUCTS_DIR}/libsodium/libsodium.framework",
-				"${BUILT_PRODUCTS_DIR}/secp256k1_ios/secp256k1_ios.framework",
-				"${BUILT_PRODUCTS_DIR}/web3swift/web3swift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -334,15 +339,11 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BigInt.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SipHash.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TrezorCrypto.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TrustCore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TrustKeystore.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/libsodium.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/secp256k1_ios.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/web3swift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -392,9 +393,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB3D0C2B2107585000B2C9E0 /* HomesteadSigner.swift in Sources */,
 				FB7E0FB421007F6F0091BBAB /* BuildType.swift in Sources */,
 				FB648DC620FF4941009F8A1B /* Keystore.swift in Sources */,
-				FB49B0A92101837F00359AC6 /* Time.swift in Sources */,
+				FB3D0C30210762E400B2C9E0 /* RawTransaction.swift in Sources */,
+				FB3D0C2E21075B9D00B2C9E0 /* FunctionRawEncoder.swift in Sources */,
 				FB59499D2102E4D70061045A /* DispatchQueue.swift in Sources */,
 				FB32694420FDE8920037ED22 /* Signer.swift in Sources */,
 				FB7E0FB621007FEA0091BBAB /* KeystoreError.swift in Sources */,
@@ -410,6 +413,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB49B0A621017A2A00359AC6 /* EtherKeystoreBuildSpec.swift in Sources */,
+				FB45602721070EA1002F3DD3 /* EtherKeystoreSignSpec.swift in Sources */,
 				FB59499F2102E57E0061045A /* EtherKeystoreExportSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
