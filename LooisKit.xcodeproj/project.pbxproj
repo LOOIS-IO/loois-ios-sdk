@@ -147,20 +147,6 @@
 			path = LooisKitTests;
 			sourceTree = "<group>";
 		};
-		FB32694220FDE8510037ED22 /* Base */ = {
-			isa = PBXGroup;
-			children = (
-				FB7E0FB321007F6F0091BBAB /* BuildType.swift */,
-				FB59499A2102E3730061045A /* ExportType.swift */,
-				FB7E0FB521007FEA0091BBAB /* KeystoreError.swift */,
-				FB3D0C2D21075B9D00B2C9E0 /* FunctionRawEncoder.swift */,
-				FB7E0FB8210096F60091BBAB /* EtherKeystore.swift */,
-				FB3D0C2A2107585000B2C9E0 /* HomesteadSigner.swift */,
-				FB3D0C2F210762E400B2C9E0 /* RawTransaction.swift */,
-			);
-			path = Base;
-			sourceTree = "<group>";
-		};
 		FB32694520FDE8B60037ED22 /* RelayAPI */ = {
 			isa = PBXGroup;
 			children = (
@@ -172,10 +158,8 @@
 		FB32694820FDEC460037ED22 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				FB49B0A72101810B00359AC6 /* Utils */,
 				FB7E0FB7210096D90091BBAB /* Core */,
 				FB32694520FDE8B60037ED22 /* RelayAPI */,
-				FB32694220FDE8510037ED22 /* Base */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -201,9 +185,17 @@
 		FB7E0FB7210096D90091BBAB /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				FB49B0A72101810B00359AC6 /* Utils */,
 				FB32694320FDE8920037ED22 /* Signer.swift */,
 				FB648DC520FF4941009F8A1B /* Keystore.swift */,
 				FB5949982102D0610061045A /* Wallet+Loois.swift */,
+				FB7E0FB321007F6F0091BBAB /* BuildType.swift */,
+				FB59499A2102E3730061045A /* ExportType.swift */,
+				FB7E0FB521007FEA0091BBAB /* KeystoreError.swift */,
+				FB3D0C2D21075B9D00B2C9E0 /* FunctionRawEncoder.swift */,
+				FB7E0FB8210096F60091BBAB /* EtherKeystore.swift */,
+				FB3D0C2A2107585000B2C9E0 /* HomesteadSigner.swift */,
+				FB3D0C2F210762E400B2C9E0 /* RawTransaction.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -606,7 +598,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7F2067103CE2369D72F44155 /* Pods-LooisKitTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 735FD6WCKP;
 				INFOPLIST_FILE = LooisKitTests/Info.plist;
@@ -626,7 +617,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = CEA4E22981A69F8C6CDB2E82 /* Pods-LooisKitTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 735FD6WCKP;
 				INFOPLIST_FILE = LooisKitTests/Info.plist;

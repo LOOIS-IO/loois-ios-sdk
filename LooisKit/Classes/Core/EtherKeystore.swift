@@ -97,7 +97,7 @@ extension EtherKeystore {
       return .failure(.failedToParseJSON)
     }
     do {
-      let wallet = try keyStore.import(json: data, password: password, newPassword: newPassword, coin: .ethereum)
+      let wallet = try keyStore.import(json: data, password: password, newPassword: newPassword)
       return .success(wallet)
     } catch {
       if case KeyStore.Error.accountAlreadyExists = error {
@@ -127,7 +127,7 @@ extension EtherKeystore {
         return .failure(KeystoreError.invalidPrivateKey)
     }
     do {
-      let wallet = try keyStore.import(privateKey: privateKeyData, password: newPassword, coin: .ethereum)
+      let wallet = try keyStore.import(privateKey: privateKeyData, password: newPassword)
       return .success(wallet)
     } catch {
       return .failure(KeystoreError.failedToImportPrivateKey)
