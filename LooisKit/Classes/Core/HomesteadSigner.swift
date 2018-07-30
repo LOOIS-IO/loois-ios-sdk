@@ -15,6 +15,8 @@ import Result
 
 public struct HomesteadSigner: Signer {
   
+  public init() {}
+  
   public func sign(transaction: SignTransaction, wallet: Wallet, password: String) -> Result<Data, KeystoreError> {
     guard let address = transaction.to else {
       return .failure(.failedToSignTransaction)

@@ -12,7 +12,7 @@ import TrustCore
 import Result
 import BigInt
 
-class EtherKeystore: Keystore {
+public final class EtherKeystore: Keystore {
     
   private let datadir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
   

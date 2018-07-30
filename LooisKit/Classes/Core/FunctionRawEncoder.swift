@@ -20,7 +20,7 @@ public enum FunctionRawEncoder {
   case cancelAllOrders(timestamp: BigUInt)
   case cancelAllOrdersByTradingPair(tokenAAddress: EthereumAddress, tokenBAddress: EthereumAddress, timestamp: BigUInt)
   
-  var function: Function {
+  public var function: Function {
     switch self {
     case .bind: return Function(name: "bind", parameters: [.uint(bits: 8), .address])
     case .getBindingAddress: return Function(name: "getBindingAddress", parameters: [.address, .uint(bits: 8)])
@@ -33,7 +33,7 @@ public enum FunctionRawEncoder {
     }
   }
   
-  var arguments: [Any] {
+  public var arguments: [Any] {
     switch self {
     case let .bind(projectId, owner): return [projectId, owner]
     case let .getBindingAddress(owner, projectId): return [owner, projectId]
@@ -46,7 +46,7 @@ public enum FunctionRawEncoder {
     }
   }
   
-  var encodedData: Data {
+  public var encodedData: Data {
     let encoder = ABIEncoder()
     try! encoder.encode(function: function, arguments: arguments)
     return encoder.data
