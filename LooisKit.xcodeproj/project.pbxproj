@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		6B767F65907C202C12271525 /* Pods_LooisKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8042424B20190F9A074E2F8C /* Pods_LooisKit.framework */; };
 		972BF475DFFABBFE7CB4FC23 /* Pods_LooisKitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47B72078EA3D182E5B0644C9 /* Pods_LooisKitTests.framework */; };
+		FB1944612117FAD5003E74D4 /* TransactionSignatureBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1944602117FAD5003E74D4 /* TransactionSignatureBuilder.swift */; };
 		FB32693220FDE8490037ED22 /* LooisKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB32692820FDE8490037ED22 /* LooisKit.framework */; };
 		FB32693920FDE8490037ED22 /* LooisKit.h in Headers */ = {isa = PBXBuildFile; fileRef = FB32692B20FDE8490037ED22 /* LooisKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FB32694420FDE8920037ED22 /* Signer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB32694320FDE8920037ED22 /* Signer.swift */; };
@@ -45,6 +46,7 @@
 		8042424B20190F9A074E2F8C /* Pods_LooisKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LooisKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEA4E22981A69F8C6CDB2E82 /* Pods-LooisKitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LooisKitTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LooisKitTests/Pods-LooisKitTests.release.xcconfig"; sourceTree = "<group>"; };
 		E9293EA775E8C3FC73FA741F /* Pods-LooisKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LooisKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LooisKit/Pods-LooisKit.debug.xcconfig"; sourceTree = "<group>"; };
+		FB1944602117FAD5003E74D4 /* TransactionSignatureBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionSignatureBuilder.swift; sourceTree = "<group>"; };
 		FB32692820FDE8490037ED22 /* LooisKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LooisKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB32692B20FDE8490037ED22 /* LooisKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LooisKit.h; sourceTree = "<group>"; };
 		FB32692C20FDE8490037ED22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 				FB7E0FB8210096F60091BBAB /* EtherKeystore.swift */,
 				FB3D0C2A2107585000B2C9E0 /* HomesteadSigner.swift */,
 				FB3D0C2F210762E400B2C9E0 /* RawTransaction.swift */,
+				FB1944602117FAD5003E74D4 /* TransactionSignatureBuilder.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -385,6 +388,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB1944612117FAD5003E74D4 /* TransactionSignatureBuilder.swift in Sources */,
 				FB3D0C2B2107585000B2C9E0 /* HomesteadSigner.swift in Sources */,
 				FB7E0FB421007F6F0091BBAB /* BuildType.swift in Sources */,
 				FB648DC620FF4941009F8A1B /* Keystore.swift in Sources */,

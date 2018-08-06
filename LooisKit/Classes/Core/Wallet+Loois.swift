@@ -12,6 +12,14 @@ import TrustCore
 
 extension Wallet {
   
+  public var firstAccount: Account? {
+    return accounts.first
+  }
+  
+  public var firstAccountEthereumAddress: EthereumAddress? {
+    return firstAccount?.address as? EthereumAddress
+  }
+  
   public func privateKey(password: String, derivationPath: DerivationPath = Coin.ethereum.derivationPath(at: 0)) throws -> PrivateKey {
     switch key.type {
     case .encryptedKey:

@@ -18,8 +18,24 @@ public struct HomesteadSigner: Signer {
   public init() {}
   
   public func sign(transaction: SignTransaction, wallet: Wallet, password: String) -> Result<Data, KeystoreError> {
-    guard let address = transaction.to else {
+    guard let (r, s, v) = signValues(transaction: transaction, wallet: wallet, password: password) else {
       return .failure(.failedToSignTransaction)
+    }
+    let data = RLP.encode([
+      transaction.nonce,
+      transaction.gasPrice,
+      transaction.gasLimit,
+      transaction.to?.data ?? Data(),
+      transaction.value,
+      transaction.data,
+      v, r, s,
+      ])!
+    return .success(data)
+  }
+  
+  func signValues(transaction: SignTransaction, wallet: Wallet, password: String) -> (r: BigInt, s: BigInt, v: BigInt)? {
+    guard let address = transaction.to else {
+      return nil
     }
     
     let account = Account(wallet: wallet, address: address, derivationPath: Coin.ethereum.derivationPath(at: 0))
@@ -28,18 +44,9 @@ public struct HomesteadSigner: Signer {
       let hash = self.hash(transaction: transaction)
       let signature = try account.sign(hash: hash, password: password)
       let (r, s, v) = values(transaction: transaction, signature: signature)
-      let data = RLP.encode([
-        transaction.nonce,
-        transaction.gasPrice,
-        transaction.gasLimit,
-        transaction.to?.data ?? Data(),
-        transaction.value,
-        transaction.data,
-        v, r, s,
-        ])!
-      return .success(data)
+      return (r, s, v)
     } catch {
-      return .failure(.failedToSignTransaction)
+      return nil
     }
   }
   

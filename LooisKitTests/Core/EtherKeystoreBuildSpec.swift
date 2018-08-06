@@ -17,7 +17,7 @@ final class EtherKeystoreBuildSpec: QuickSpec {
   
   override func spec() {
     
-    let timeout = 180.0
+    let timeout = 10.0
     
     var keystore: EtherKeystore!
     

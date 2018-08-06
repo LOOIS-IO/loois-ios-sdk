@@ -16,12 +16,20 @@ public final class EtherKeystore: Keystore {
     
   private let datadir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
   
-  internal let keysDirectory: URL
-  internal let keyStore: KeyStore
+  let keysDirectory: URL
+  let keyStore: KeyStore
+  
+  public var wallets: [Wallet] {
+    return keyStore.wallets.filter { !$0.accounts.isEmpty }
+  }
   
   public init(keysSubfolder: String = "/keystore") {
     self.keysDirectory = URL(fileURLWithPath: datadir + keysSubfolder)
     self.keyStore = try! KeyStore(keyDirectory: keysDirectory)
+  }
+  
+  public func wallet(for address: String) -> Wallet? {
+    return wallets.filter { $0.firstAccountEthereumAddress?.eip55String == address }.first
   }
   
   public func buildWallet(type: BuildType, completion: @escaping (Result<Wallet, KeystoreError>) -> Void) {
