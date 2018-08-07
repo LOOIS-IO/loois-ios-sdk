@@ -17,7 +17,7 @@ final class EtherKeystoreExportSpec: QuickSpec {
   
   override func spec() {
     
-    let timeout = 180.0
+    let timeout = 10.0
     
     var keystore: EtherKeystore!
     
@@ -25,13 +25,17 @@ final class EtherKeystoreExportSpec: QuickSpec {
     
     
     beforeSuite {
-      keystore = EtherKeystore(keysSubfolder: "/keystore_test")
+      keystore = EtherKeystore(keysSubfolder: "/keystore_test_export")
       
-      let words = "length ball music side ripple wide armor army panel message crime garage".components(separatedBy: " ")
-      let password = "12345678"
-      keystore.buildWallet(type: .mnemonic(words: words, newPassword: password), completion: { (result) in
-        wallet = result.value
-      })
+      if keystore.wallets.count == 0 {
+        let words = "length ball music side ripple wide armor army panel message crime garage".components(separatedBy: " ")
+        let password = "12345678"
+        keystore.buildWallet(type: .mnemonic(words: words, newPassword: password), completion: { (result) in
+          wallet = result.value
+        })
+      } else {
+        wallet = keystore.wallets.first
+      }
     }
 
     describe("export wallet") {

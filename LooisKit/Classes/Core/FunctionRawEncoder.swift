@@ -11,7 +11,7 @@ import BigInt
 import TrustCore
 
 public enum FunctionRawEncoder {
-  case bind(projectId: UInt8, owner: EthereumAddress)
+  case bind(projectId: UInt, owner: String)
   case getBindingAddress(owner: EthereumAddress, projectId: UInt8)
   case transfer(to: EthereumAddress, amount: BigUInt)
   case withdraw(amount: BigUInt)
@@ -22,7 +22,7 @@ public enum FunctionRawEncoder {
   
   public var function: Function {
     switch self {
-    case .bind: return Function(name: "bind", parameters: [.uint(bits: 8), .address])
+    case .bind: return Function(name: "bind", parameters: [.uint(bits: 8), .string])
     case .getBindingAddress: return Function(name: "getBindingAddress", parameters: [.address, .uint(bits: 8)])
     case .transfer: return Function(name: "transfer", parameters: [.address, .uint(bits: 256)])
     case .withdraw: return Function(name: "withdraw", parameters: [.uint(bits: 256)])

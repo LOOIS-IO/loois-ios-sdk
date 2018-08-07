@@ -27,6 +27,7 @@
 		FB7E0FB421007F6F0091BBAB /* BuildType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7E0FB321007F6F0091BBAB /* BuildType.swift */; };
 		FB7E0FB621007FEA0091BBAB /* KeystoreError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7E0FB521007FEA0091BBAB /* KeystoreError.swift */; };
 		FB7E0FB9210096F60091BBAB /* EtherKeystore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7E0FB8210096F60091BBAB /* EtherKeystore.swift */; };
+		FBF2590121193F86004BF2D6 /* TransactionSignatureBuilderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF2590021193F86004BF2D6 /* TransactionSignatureBuilderSpec.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		FB7E0FB321007F6F0091BBAB /* BuildType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildType.swift; sourceTree = "<group>"; };
 		FB7E0FB521007FEA0091BBAB /* KeystoreError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeystoreError.swift; sourceTree = "<group>"; };
 		FB7E0FB8210096F60091BBAB /* EtherKeystore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EtherKeystore.swift; sourceTree = "<group>"; };
+		FBF2590021193F86004BF2D6 /* TransactionSignatureBuilderSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionSignatureBuilderSpec.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +174,7 @@
 				FB49B0A521017A2A00359AC6 /* EtherKeystoreBuildSpec.swift */,
 				FB59499E2102E57E0061045A /* EtherKeystoreExportSpec.swift */,
 				FB45602621070EA1002F3DD3 /* EtherKeystoreSignSpec.swift */,
+				FBF2590021193F86004BF2D6 /* TransactionSignatureBuilderSpec.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -410,6 +413,7 @@
 			files = (
 				FB49B0A621017A2A00359AC6 /* EtherKeystoreBuildSpec.swift in Sources */,
 				FB45602721070EA1002F3DD3 /* EtherKeystoreSignSpec.swift in Sources */,
+				FBF2590121193F86004BF2D6 /* TransactionSignatureBuilderSpec.swift in Sources */,
 				FB59499F2102E57E0061045A /* EtherKeystoreExportSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

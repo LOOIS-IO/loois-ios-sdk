@@ -18,20 +18,24 @@ final class EtherKeystoreSignSpec: QuickSpec {
   
   override func spec() {
     
-    let timeout = 180.0
+    let timeout = 10.0
     
     var keystore: EtherKeystore!
     
     var wallet: Wallet!
     
     beforeSuite {
-      keystore = EtherKeystore(keysSubfolder: "/keystore_test")
+      keystore = EtherKeystore(keysSubfolder: "/keystore_test_sign")
       
-      let words = "cause water picnic laugh magnet subway dance pill nominee gorilla output blind".components(separatedBy: " ")
-      let password = "12345678"
-      keystore.buildWallet(type: .mnemonic(words: words, newPassword: password), completion: { (result) in
-        wallet = result.value
-      })
+      if keystore.wallets.count == 0 {
+        let words = "cause water picnic laugh magnet subway dance pill nominee gorilla output blind".components(separatedBy: " ")
+        let password = "12345678"
+        keystore.buildWallet(type: .mnemonic(words: words, newPassword: password), completion: { (result) in
+          wallet = result.value
+        })
+      } else {
+        wallet = keystore.wallets.first
+      }
     }
     
     describe("Sign Transaction") {

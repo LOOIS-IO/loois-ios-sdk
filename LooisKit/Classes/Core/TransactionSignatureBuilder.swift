@@ -17,7 +17,7 @@ public enum SignBuildError: Error {
   case signFailed
 }
 
-public enum AirdropType: UInt8 {
+public enum AirdropType: UInt {
   case neo = 1
   case qtum = 2
 }
@@ -51,8 +51,7 @@ public enum TransactionSignatureBuilder {
     switch self {
     case let .bind(project, owner, gasPrice, gasLimit, nonce, contractAddress):
       
-      guard let owner = EthereumAddress(string: owner),
-        let contractAddress = EthereumAddress(string: contractAddress) else { return nil }
+      guard let contractAddress = EthereumAddress(string: contractAddress) else { return nil }
       
       let encoder = FunctionRawEncoder.bind(projectId: project.rawValue, owner: owner)
       return RawTransaction(nonce: nonce,
