@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "LooisKit"
-  s.version          = "0.0.3"
+  s.version          = "0.0.4"
   s.summary          = "A wrapper for Trust and loois-relay"
 
   s.description      = <<-DESC
