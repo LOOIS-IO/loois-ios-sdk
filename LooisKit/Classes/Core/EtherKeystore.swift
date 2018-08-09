@@ -80,7 +80,7 @@ extension EtherKeystore {
   
   fileprivate func exportKeystore(wallet: Wallet, password: String, newPassword: String) -> Result<String, KeystoreError> {
     do {
-      let data = try keyStore.export(wallet: wallet, password: password, newPassword: newPassword)
+      let data = try keyStore._export(wallet: wallet, password: password, newPassword: newPassword)
       let string = String(data: data, encoding: .utf8) ?? ""
       return .success(string)
     } catch {

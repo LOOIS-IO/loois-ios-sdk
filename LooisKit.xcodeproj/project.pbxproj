@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		6B767F65907C202C12271525 /* Pods_LooisKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8042424B20190F9A074E2F8C /* Pods_LooisKit.framework */; };
 		972BF475DFFABBFE7CB4FC23 /* Pods_LooisKitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47B72078EA3D182E5B0644C9 /* Pods_LooisKitTests.framework */; };
+		FB10EA85211AEB0E00085FC0 /* KeystoreKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB10EA84211AEB0E00085FC0 /* KeystoreKey.swift */; };
+		FB10EA87211AED0200085FC0 /* KeyStore+Loois.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB10EA86211AED0200085FC0 /* KeyStore+Loois.swift */; };
 		FB1944612117FAD5003E74D4 /* TransactionSignatureBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1944602117FAD5003E74D4 /* TransactionSignatureBuilder.swift */; };
 		FB32693220FDE8490037ED22 /* LooisKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB32692820FDE8490037ED22 /* LooisKit.framework */; };
 		FB32693920FDE8490037ED22 /* LooisKit.h in Headers */ = {isa = PBXBuildFile; fileRef = FB32692B20FDE8490037ED22 /* LooisKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -47,6 +49,8 @@
 		8042424B20190F9A074E2F8C /* Pods_LooisKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LooisKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEA4E22981A69F8C6CDB2E82 /* Pods-LooisKitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LooisKitTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LooisKitTests/Pods-LooisKitTests.release.xcconfig"; sourceTree = "<group>"; };
 		E9293EA775E8C3FC73FA741F /* Pods-LooisKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LooisKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LooisKit/Pods-LooisKit.debug.xcconfig"; sourceTree = "<group>"; };
+		FB10EA84211AEB0E00085FC0 /* KeystoreKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeystoreKey.swift; sourceTree = "<group>"; };
+		FB10EA86211AED0200085FC0 /* KeyStore+Loois.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyStore+Loois.swift"; sourceTree = "<group>"; };
 		FB1944602117FAD5003E74D4 /* TransactionSignatureBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionSignatureBuilder.swift; sourceTree = "<group>"; };
 		FB32692820FDE8490037ED22 /* LooisKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LooisKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB32692B20FDE8490037ED22 /* LooisKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LooisKit.h; sourceTree = "<group>"; };
@@ -112,6 +116,18 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		FB10EA63211AD69D00085FC0 /* Keystore */ = {
+			isa = PBXGroup;
+			children = (
+				FB32694320FDE8920037ED22 /* Signer.swift */,
+				FB648DC520FF4941009F8A1B /* Keystore.swift */,
+				FB5949982102D0610061045A /* Wallet+Loois.swift */,
+				FB10EA84211AEB0E00085FC0 /* KeystoreKey.swift */,
+				FB10EA86211AED0200085FC0 /* KeyStore+Loois.swift */,
+			);
+			path = Keystore;
+			sourceTree = "<group>";
+		};
 		FB32691E20FDE8490037ED22 = {
 			isa = PBXGroup;
 			children = (
@@ -162,6 +178,7 @@
 		FB32694820FDEC460037ED22 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				FB10EA63211AD69D00085FC0 /* Keystore */,
 				FB7E0FB7210096D90091BBAB /* Core */,
 				FB32694520FDE8B60037ED22 /* RelayAPI */,
 			);
@@ -191,9 +208,6 @@
 			isa = PBXGroup;
 			children = (
 				FB49B0A72101810B00359AC6 /* Utils */,
-				FB32694320FDE8920037ED22 /* Signer.swift */,
-				FB648DC520FF4941009F8A1B /* Keystore.swift */,
-				FB5949982102D0610061045A /* Wallet+Loois.swift */,
 				FB7E0FB321007F6F0091BBAB /* BuildType.swift */,
 				FB59499A2102E3730061045A /* ExportType.swift */,
 				FB7E0FB521007FEA0091BBAB /* KeystoreError.swift */,
@@ -392,6 +406,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB1944612117FAD5003E74D4 /* TransactionSignatureBuilder.swift in Sources */,
+				FB10EA85211AEB0E00085FC0 /* KeystoreKey.swift in Sources */,
 				FB3D0C2B2107585000B2C9E0 /* HomesteadSigner.swift in Sources */,
 				FB7E0FB421007F6F0091BBAB /* BuildType.swift in Sources */,
 				FB648DC620FF4941009F8A1B /* Keystore.swift in Sources */,
@@ -399,6 +414,7 @@
 				FB3D0C2E21075B9D00B2C9E0 /* FunctionRawEncoder.swift in Sources */,
 				FB59499D2102E4D70061045A /* DispatchQueue.swift in Sources */,
 				FB32694420FDE8920037ED22 /* Signer.swift in Sources */,
+				FB10EA87211AED0200085FC0 /* KeyStore+Loois.swift in Sources */,
 				FB7E0FB621007FEA0091BBAB /* KeystoreError.swift in Sources */,
 				FB7E0FB9210096F60091BBAB /* EtherKeystore.swift in Sources */,
 				FB32694720FDE8E10037ED22 /* Relay.swift in Sources */,
@@ -570,7 +586,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = loois.LooisKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -34,7 +34,7 @@ final class EtherKeystoreBuildSpec: QuickSpec {
         })
         expect(wallet).toEventuallyNot(beNil(), timeout: timeout)
         expect(wallet.accounts).toNot(beNil())
-        expect((wallet.accounts.first?.address as? EthereumAddress)?.eip55String).toNot(beNil())
+        expect(wallet.accounts.first?.address.data.hexString).toNot(beNil())
       })
     }
     
@@ -56,7 +56,7 @@ final class EtherKeystoreBuildSpec: QuickSpec {
             wallet = result.value
           })
           expect(wallet).toEventuallyNot(beNil(), timeout: timeout)
-          expect((wallet.accounts.first?.address as? EthereumAddress)?.eip55String.lowercased()).to(equal("0xf494B631F83909dd19BA55a7e3d55491EaD875cC".lowercased()))
+          expect(wallet.accounts.first?.address.data.hexString.lowercased()).to(equal("0xf494B631F83909dd19BA55a7e3d55491EaD875cC".lowercased()))
         })
         
         it("valid keystore stfring and invalid password", closure: {
@@ -124,7 +124,7 @@ final class EtherKeystoreBuildSpec: QuickSpec {
             wallet = result.value
           })
           expect(wallet).toEventuallyNot(beNil(), timeout: timeout)
-          expect((wallet.accounts.first?.address as? EthereumAddress)?.eip55String.lowercased()).to(equal("0xf494B631F83909dd19BA55a7e3d55491EaD875cC".lowercased()))
+          expect(wallet.accounts.first?.address.data.hexString.lowercased()).to(equal("0xf494B631F83909dd19BA55a7e3d55491EaD875cC".lowercased()))
           
         })
         
@@ -157,7 +157,7 @@ final class EtherKeystoreBuildSpec: QuickSpec {
             wallet = result.value
           })
           expect(wallet).toEventuallyNot(beNil(), timeout: timeout)
-          expect((wallet.accounts.first?.address as? EthereumAddress)?.eip55String.lowercased()).to(equal("0xf494B631F83909dd19BA55a7e3d55491EaD875cC".lowercased()))
+          expect(wallet.accounts.first?.address.data.hexString.lowercased()).to(equal("0xf494B631F83909dd19BA55a7e3d55491EaD875cC".lowercased()))
 
         })
         
