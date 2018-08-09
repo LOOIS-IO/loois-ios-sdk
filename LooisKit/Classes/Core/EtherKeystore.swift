@@ -56,9 +56,35 @@ public final class EtherKeystore: Keystore {
     }
   }
   
+  public func delete(wallet: Wallet, password: String, completion: @escaping (Result<Bool, KeystoreError>) -> Void) {
+    DispatchQueue.executeGlobal(execute: self.delete(wallet: wallet, password: password), main: completion)
+  }
+  
+  public func update(wallet: Wallet, password: String, newPassword: String, completion: @escaping (Result<Bool, KeystoreError>) -> Void) {
+    DispatchQueue.executeGlobal(execute: self.update(wallet: wallet, password: password, newPassword: newPassword), main: completion)
+  }
+  
 }
 
 extension EtherKeystore {
+  
+  fileprivate func delete(wallet: Wallet, password: String) -> Result<Bool, KeystoreError> {
+    do {
+      try keyStore.delete(wallet: wallet, password: password)
+      return .success(true)
+    } catch {
+      return .failure(.failedToDeleteAccount)
+    }
+  }
+  
+  fileprivate func update(wallet: Wallet, password: String, newPassword: String) -> Result<Bool, KeystoreError> {
+    do {
+      try keyStore.update(wallet: wallet, password: password, newPassword: newPassword)
+      return .success(true)
+    } catch {
+      return .failure(.failedToUpdatePassword)
+    }
+  }
   
   fileprivate func exportMnemonic(wallet: Wallet, password: String) -> Result<String, KeystoreError> {
     do {

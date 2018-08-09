@@ -17,10 +17,6 @@ public enum KeystoreError: LocalizedError {
   case failedToCreateWallet
   case failedToImportPrivateKey
   case failedToParseJSON
-  case accountNotFound
-  case failedToSignMessage
-  case failedToSignTypedMessage
-  case failedToExportPrivateKey
   case invalidMnemonicPhrase
   case invalidPrivateKey
   
@@ -44,14 +40,6 @@ public enum KeystoreError: LocalizedError {
       return "Failed to import private key"
     case .failedToParseJSON:
       return "Failed to parse key JSON"
-    case .accountNotFound:
-      return "Account not found"
-    case .failedToSignMessage:
-      return "Failed to sign message"
-    case .failedToSignTypedMessage:
-      return "Failed to sign typed message"
-    case .failedToExportPrivateKey:
-      return "Failed to export private key"
     case .invalidMnemonicPhrase:
       return "Invalid mnemonic phrase"
     case .invalidPrivateKey:

@@ -45,7 +45,7 @@ final class EtherKeystoreExportSpec: QuickSpec {
         expect(wallet).toEventuallyNot(beNil(), timeout: timeout)
       })
       
-      it("private key by correct password", closure: {
+      it("private key by using correct password", closure: {
         var pk: String!
         keystore.exportWallet(type: .privateKey(wallet: wallet, password: "12345678"), completion: { (result) in
           pk = result.value
@@ -60,7 +60,7 @@ final class EtherKeystoreExportSpec: QuickSpec {
         expect(newWallet.accounts.first?.address.data.hexString) == wallet.accounts.first?.address.data.hexString
       })
       
-      it("private key by incorrect password", closure: {
+      it("private key by using incorrect password", closure: {
         var error: KeystoreError!
         keystore.exportWallet(type: .privateKey(wallet: wallet, password: "23"), completion: { (result) in
           error = result.error
@@ -69,7 +69,7 @@ final class EtherKeystoreExportSpec: QuickSpec {
         expect(error.localizedDescription).to(equal(KeystoreError.failedToDecryptKey.localizedDescription))
       })
       
-      fit("keystore string by correct password", closure: {
+      fit("keystore string by using correct password", closure: {
         var ksstring: String!
         keystore.exportWallet(type: .keystore(wallet: wallet, password: "12345678", newPassword: "11223344"), completion: { (result) in
           ksstring = result.value
@@ -90,7 +90,7 @@ final class EtherKeystoreExportSpec: QuickSpec {
 //        expect(newWallet.accounts.first?.address.data.hexString) == wallet.accounts.first?.address.data.hexString
       })
       
-      it("keystore string by incorrect password", closure: {
+      it("keystore string by using incorrect password", closure: {
         var error: KeystoreError!
         keystore.exportWallet(type: .keystore(wallet: wallet, password: "323", newPassword: "11223344"), completion: { (result) in
           error = result.error
@@ -99,7 +99,7 @@ final class EtherKeystoreExportSpec: QuickSpec {
         expect(error.localizedDescription).to(equal(KeystoreError.failedToDecryptKey.localizedDescription))
       })
       
-      it("mnenomic words by correct password", closure: {
+      it("mnenomic words by using correct password", closure: {
         var mnemonic: String!
         keystore.exportWallet(type: .mnemonic(wallet: wallet, password: "12345678"), completion: { (result) in
           mnemonic = result.value
@@ -108,7 +108,7 @@ final class EtherKeystoreExportSpec: QuickSpec {
         expect(mnemonic).toNot(beEmpty())
       })
       
-      it("mnenomic words by incorrect password", closure: {
+      it("mnenomic words by using incorrect password", closure: {
         var error: KeystoreError!
         keystore.exportWallet(type: .mnemonic(wallet: wallet, password: "2343"), completion: { (result) in
           error = result.error
