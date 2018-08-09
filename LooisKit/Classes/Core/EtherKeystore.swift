@@ -106,7 +106,7 @@ extension EtherKeystore {
   
   fileprivate func exportKeystore(wallet: Wallet, password: String, newPassword: String) -> Result<String, KeystoreError> {
     do {
-      let data = try keyStore._export(wallet: wallet, password: password, newPassword: newPassword)
+      let data = try keyStore.export(wallet: wallet, password: password, newPassword: newPassword)
       let string = String(data: data, encoding: .utf8) ?? ""
       return .success(string)
     } catch {
@@ -131,7 +131,7 @@ extension EtherKeystore {
       return .failure(.failedToParseJSON)
     }
     do {
-      let wallet = try keyStore.import(json: data, password: password, newPassword: newPassword)
+      let wallet = try keyStore._import(json: data, password: password, newPassword: newPassword)
       return .success(wallet)
     } catch {
       if case KeyStore.Error.accountAlreadyExists = error {

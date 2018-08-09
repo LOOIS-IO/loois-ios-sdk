@@ -56,10 +56,10 @@ final class EtherKeystoreBuildSpec: QuickSpec {
             wallet = result.value
           })
           expect(wallet).toEventuallyNot(beNil(), timeout: timeout)
-          expect(wallet.accounts.first?.address.data.hexString.lowercased()).to(equal("0xf494B631F83909dd19BA55a7e3d55491EaD875cC".lowercased()))
+          expect(wallet.accounts.first?.address.data.hexString.lowercased()).to(equal("f494B631F83909dd19BA55a7e3d55491EaD875cC".lowercased()))
         })
         
-        it("valid keystore stfring and invalid password", closure: {
+        it("valid keystore string and invalid password", closure: {
 
           let ksstring = """
             {"address":"f494B631F83909dd19BA55a7e3d55491EaD875cC","crypto":{"cipher":"aes-128-ctr","cipherparams":{"iv":"1816bf36f998d1a44d4ca07ecbb30312"},"ciphertext":"1f0dbff4e58a1753c8eb098a805b59a9ddd4db65d5210e8a901044f3d5741d90","kdf":"scrypt","kdfparams":{"dklen":32,"n":4096,"p":6,"r":8,"salt":"4d4c93b93565541fc69ce8a34ab7f35e3fedababebfa0c96dcee8861fa1ef9f8"},"mac":"30a1e33ebb437a21d9028cca74f5c1c7f9f7b98d7fdfb943dcbac12dbf76b0aa"},"id":"febb384a-a312-4679-b8a1-06207d941f84","version":3}
@@ -124,7 +124,7 @@ final class EtherKeystoreBuildSpec: QuickSpec {
             wallet = result.value
           })
           expect(wallet).toEventuallyNot(beNil(), timeout: timeout)
-          expect(wallet.accounts.first?.address.data.hexString.lowercased()).to(equal("0xf494B631F83909dd19BA55a7e3d55491EaD875cC".lowercased()))
+          expect(wallet.accounts.first?.address.data.hexString.lowercased()).to(equal("f494B631F83909dd19BA55a7e3d55491EaD875cC".lowercased()))
           
         })
         
@@ -157,7 +157,7 @@ final class EtherKeystoreBuildSpec: QuickSpec {
             wallet = result.value
           })
           expect(wallet).toEventuallyNot(beNil(), timeout: timeout)
-          expect(wallet.accounts.first?.address.data.hexString.lowercased()).to(equal("0xf494B631F83909dd19BA55a7e3d55491EaD875cC".lowercased()))
+          expect(wallet.accounts.first?.address.data.hexString.lowercased()).to(equal("f494B631F83909dd19BA55a7e3d55491EaD875cC".lowercased()))
 
         })
         

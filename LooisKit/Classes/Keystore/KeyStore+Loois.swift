@@ -16,7 +16,7 @@ extension KeyStore {
     
   }
   
-  func `import`(json: Data, password: String, newPassword: String) throws -> Wallet {
+  func _import(json: Data, password: String, newPassword: String) throws -> Wallet {
     let key = try JSONDecoder().decode(TrustKeystore.KeystoreKey.self, from: json)
     
     var privateKeyData = try key.decrypt(password: password)
@@ -59,9 +59,6 @@ extension KeyStore {
     case .hierarchicalDeterministicWallet:
       guard var string = String(data: privateKeyData, encoding: .ascii) else {
         throw EncryptError.invalidMnemonic
-      }
-      if string.hasSuffix("\0") {
-        string.removeLast(1)
       }
       let privateKey = try wallet.privateKey(password: password)
       

@@ -70,7 +70,7 @@ final class EtherKeystoreExportSpec: QuickSpec {
       })
       
       fit("keystore string by using correct password", closure: {
-        var ksstring: String!
+        var ksstring: String?
         keystore.exportWallet(type: .keystore(wallet: wallet, password: "12345678", newPassword: "11223344"), completion: { (result) in
           ksstring = result.value
           if let error = result.error {
@@ -79,15 +79,15 @@ final class EtherKeystoreExportSpec: QuickSpec {
         })
         expect(ksstring).toEventuallyNot(beNil(), timeout: timeout)
 
-//        var newWallet: Wallet!
-//        keystore.buildWallet(type: .keystore(string: ksstring, password: "11223344", newPassword: "22334455"), completion: { (result) in
-//          newWallet = result.value
-//          if let error = result.error {
-//            print(error.localizedDescription)
-//          }
-//        })
-//        expect(newWallet).toEventuallyNot(beNil(), timeout: timeout)
-//        expect(newWallet.accounts.first?.address.data.hexString) == wallet.accounts.first?.address.data.hexString
+        var newWallet: Wallet?
+        keystore.buildWallet(type: .keystore(string: ksstring!, password: "11223344", newPassword: "22334455"), completion: { (result) in
+          newWallet = result.value
+          if let error = result.error {
+            print(error.localizedDescription)
+          }
+        })
+        expect(newWallet).toEventuallyNot(beNil(), timeout: timeout)
+        expect(newWallet?.accounts.first?.address.data.hexString) == wallet.accounts.first?.address.data.hexString
       })
       
       it("keystore string by using incorrect password", closure: {
