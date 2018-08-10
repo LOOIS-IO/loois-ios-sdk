@@ -10,7 +10,6 @@ import Foundation
 import BigInt
 import CryptoSwift
 import TrustCore
-import TrustKeystore
 import Result
 
 public protocol SignTransaction {

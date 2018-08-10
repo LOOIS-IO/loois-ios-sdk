@@ -10,7 +10,6 @@ import Foundation
 import Quick
 import Nimble
 import TrustCore
-import TrustKeystore
 @testable import LooisKit
 
 final class EtherKeystoreExportSpec: QuickSpec {
@@ -45,7 +44,7 @@ final class EtherKeystoreExportSpec: QuickSpec {
         expect(wallet).toEventuallyNot(beNil(), timeout: timeout)
       })
       
-      it("private key by using correct password", closure: {
+      fit("private key by using correct password", closure: {
         var pk: String!
         keystore.exportWallet(type: .privateKey(wallet: wallet, password: "12345678"), completion: { (result) in
           pk = result.value
@@ -55,9 +54,12 @@ final class EtherKeystoreExportSpec: QuickSpec {
         var newWallet: Wallet!
         keystore.buildWallet(type: .privateKey(privateKey: pk, newPassword: "111222"), completion: { (result) in
           newWallet = result.value
+          if let error = result.error {
+            print(error.localizedDescription)
+          }
         })
         expect(newWallet).toEventuallyNot(beNil(), timeout: timeout)
-        expect(newWallet.accounts.first?.address.data.hexString) == wallet.accounts.first?.address.data.hexString
+        expect(newWallet?.address) == wallet.address
       })
       
       it("private key by using incorrect password", closure: {
@@ -69,7 +71,7 @@ final class EtherKeystoreExportSpec: QuickSpec {
         expect(error.localizedDescription).to(equal(KeystoreError.failedToDecryptKey.localizedDescription))
       })
       
-      fit("keystore string by using correct password", closure: {
+      it("keystore string by using correct password", closure: {
         var ksstring: String?
         keystore.exportWallet(type: .keystore(wallet: wallet, password: "12345678", newPassword: "11223344"), completion: { (result) in
           ksstring = result.value
@@ -87,30 +89,12 @@ final class EtherKeystoreExportSpec: QuickSpec {
           }
         })
         expect(newWallet).toEventuallyNot(beNil(), timeout: timeout)
-        expect(newWallet?.accounts.first?.address.data.hexString) == wallet.accounts.first?.address.data.hexString
+        expect(newWallet?.address) == wallet.address
       })
       
       it("keystore string by using incorrect password", closure: {
         var error: KeystoreError!
         keystore.exportWallet(type: .keystore(wallet: wallet, password: "323", newPassword: "11223344"), completion: { (result) in
-          error = result.error
-        })
-        expect(error).toEventuallyNot(beNil(), timeout: timeout)
-        expect(error.localizedDescription).to(equal(KeystoreError.failedToDecryptKey.localizedDescription))
-      })
-      
-      it("mnenomic words by using correct password", closure: {
-        var mnemonic: String!
-        keystore.exportWallet(type: .mnemonic(wallet: wallet, password: "12345678"), completion: { (result) in
-          mnemonic = result.value
-        })
-        expect(mnemonic).toEventuallyNot(beNil(), timeout: timeout)
-        expect(mnemonic).toNot(beEmpty())
-      })
-      
-      it("mnenomic words by using incorrect password", closure: {
-        var error: KeystoreError!
-        keystore.exportWallet(type: .mnemonic(wallet: wallet, password: "2343"), completion: { (result) in
           error = result.error
         })
         expect(error).toEventuallyNot(beNil(), timeout: timeout)

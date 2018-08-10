@@ -10,7 +10,6 @@ import Foundation
 import BigInt
 import CryptoSwift
 import TrustCore
-import TrustKeystore
 import Result
 
 public struct HomesteadSigner: Signer {
@@ -34,15 +33,9 @@ public struct HomesteadSigner: Signer {
   }
   
   func signValues(transaction: SignTransaction, wallet: Wallet, password: String) -> (r: BigInt, s: BigInt, v: BigInt)? {
-    guard let address = transaction.to else {
-      return nil
-    }
-    
-    let account = Account(wallet: wallet, address: address, derivationPath: Coin.ethereum.derivationPath(at: 0))
-    
     do {
       let hash = self.hash(transaction: transaction)
-      let signature = try account.sign(hash: hash, password: password)
+      let signature = try wallet.sign(hash: hash, password: password)
       let (r, s, v) = values(transaction: transaction, signature: signature)
       return (r, s, v)
     } catch {

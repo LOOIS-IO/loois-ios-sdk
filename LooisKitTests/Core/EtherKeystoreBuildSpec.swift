@@ -10,7 +10,6 @@ import Foundation
 import Quick
 import Nimble
 import TrustCore
-import TrustKeystore
 @testable import LooisKit
 
 final class EtherKeystoreBuildSpec: QuickSpec {
@@ -26,15 +25,17 @@ final class EtherKeystoreBuildSpec: QuickSpec {
     }
     
     describe("create wallet") {
-      it("create wallet use password", closure: {
+      it("use password", closure: {
         
         var wallet: Wallet!
         keystore.buildWallet(type: .create(newPassword: "123456"), completion: { (result) in
           wallet = result.value
+          if let error = result.error {
+            print(error.localizedDescription)
+          }
         })
         expect(wallet).toEventuallyNot(beNil(), timeout: timeout)
-        expect(wallet.accounts).toNot(beNil())
-        expect(wallet.accounts.first?.address.data.hexString).toNot(beNil())
+        expect(wallet?.address).toNot(beNil())
       })
     }
     
@@ -56,7 +57,7 @@ final class EtherKeystoreBuildSpec: QuickSpec {
             wallet = result.value
           })
           expect(wallet).toEventuallyNot(beNil(), timeout: timeout)
-          expect(wallet.accounts.first?.address.data.hexString.lowercased()).to(equal("f494B631F83909dd19BA55a7e3d55491EaD875cC".lowercased()))
+          expect(wallet?.address?.lowercased()).to(equal("f494B631F83909dd19BA55a7e3d55491EaD875cC".lowercased()))
         })
         
         it("valid keystore string and invalid password", closure: {
@@ -124,7 +125,7 @@ final class EtherKeystoreBuildSpec: QuickSpec {
             wallet = result.value
           })
           expect(wallet).toEventuallyNot(beNil(), timeout: timeout)
-          expect(wallet.accounts.first?.address.data.hexString.lowercased()).to(equal("f494B631F83909dd19BA55a7e3d55491EaD875cC".lowercased()))
+          expect(wallet?.address?.lowercased()).to(equal("f494B631F83909dd19BA55a7e3d55491EaD875cC".lowercased()))
           
         })
         
@@ -157,7 +158,7 @@ final class EtherKeystoreBuildSpec: QuickSpec {
             wallet = result.value
           })
           expect(wallet).toEventuallyNot(beNil(), timeout: timeout)
-          expect(wallet.accounts.first?.address.data.hexString.lowercased()).to(equal("f494B631F83909dd19BA55a7e3d55491EaD875cC".lowercased()))
+          expect(wallet?.address?.lowercased()).to(equal("f494B631F83909dd19BA55a7e3d55491EaD875cC".lowercased()))
 
         })
         

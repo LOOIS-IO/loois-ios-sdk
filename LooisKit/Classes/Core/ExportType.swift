@@ -7,11 +7,9 @@
 //
 
 import Foundation
-import TrustKeystore
 
 /// 钱包导出类型
 public enum ExportType {
   case keystore(wallet: Wallet, password: String, newPassword: String)
   case privateKey(wallet: Wallet, password: String)
-  case mnemonic(wallet: Wallet, password: String)
 }

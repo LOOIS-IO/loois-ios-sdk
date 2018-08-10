@@ -10,7 +10,6 @@ import Foundation
 import Quick
 import Nimble
 import TrustCore
-import TrustKeystore
 @testable import LooisKit
 
 final class EtherKeystoreManagementSpec: QuickSpec {
@@ -22,7 +21,6 @@ final class EtherKeystoreManagementSpec: QuickSpec {
     var keystore: EtherKeystore!
     
     var wallet: Wallet!
-    
     
     beforeSuite {
       keystore = EtherKeystore(keysSubfolder: "/keystore_test_management")

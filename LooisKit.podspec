@@ -24,7 +24,6 @@ Pod::Spec.new do |s|
   s.subspec 'Core' do |ss|
     ss.source_files = 'LooisKit/Classes/Core/**/*.swift'
     ss.dependency 'TrustCore', '0.2.0'
-    ss.dependency 'TrustKeystore', '0.5.0'
     ss.dependency 'Result'
   end
 end

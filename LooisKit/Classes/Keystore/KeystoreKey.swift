@@ -7,24 +7,82 @@
 //
 
 import Foundation
-import TrustKeystore
+import CryptoSwift
+import TrustCore
 
-struct KeystoreKey {
+public struct KeystoreKey {
   
-  var id: String?
+  public var id: String?
   
-  var address: String?
+  public var address: String?
   
-  var crypto: KeystoreKeyHeader
+  public var crypto: KeystoreKeyHeader
   
-  var version = 3
+  public var version = 3
   
-  init(key: TrustKeystore.KeystoreKey) {
-    id = key.id
-    address = key.address
-    crypto = key.crypto
+  /// Initializes a `Key` from a JSON wallet.
+  public init(contentsOf url: URL) throws {
+    let data = try Data(contentsOf: url)
+    self = try JSONDecoder().decode(KeystoreKey.self, from: data)
   }
   
+  /// Initializes a `Key` by encrypting a private key with a password.
+  public init(password: String, key: PrivateKey) throws {
+    id = UUID().uuidString.lowercased()
+    crypto = try KeystoreKeyHeader(password: password, data: key.data)
+    address = key.publicKey(for: .ethereum).address.data.hexString
+  }
+  
+  /// Decrypts the key and returns the private key.
+  public func decrypt(password: String) throws -> Data {
+    let derivedKey: Data
+    switch crypto.kdf {
+    case "scrypt":
+      let scrypt = Scrypt(params: crypto.kdfParams)
+      derivedKey = try scrypt.calculate(password: password)
+    default:
+      throw DecryptError.unsupportedKDF
+    }
+    
+    let mac = KeystoreKey.computeMAC(prefix: derivedKey[derivedKey.count - 16 ..< derivedKey.count], key: crypto.cipherText)
+    if mac != crypto.mac {
+      throw DecryptError.invalidPassword
+    }
+    
+    let decryptionKey = derivedKey[0...15]
+    let decryptedPK: [UInt8]
+    switch crypto.cipher {
+    case "aes-128-ctr":
+      let aesCipher = try AES(key: decryptionKey.bytes, blockMode: CTR(iv: crypto.cipherParams.iv.bytes), padding: .noPadding)
+      decryptedPK = try aesCipher.decrypt(crypto.cipherText.bytes)
+    case "aes-128-cbc":
+      let aesCipher = try AES(key: decryptionKey.bytes, blockMode: CBC(iv: crypto.cipherParams.iv.bytes), padding: .noPadding)
+      decryptedPK = try aesCipher.decrypt(crypto.cipherText.bytes)
+    default:
+      throw DecryptError.unsupportedCipher
+    }
+    
+    return Data(bytes: decryptedPK)
+  }
+  
+  static func computeMAC(prefix: Data, key: Data) -> Data {
+    var data = Data(capacity: prefix.count + key.count)
+    data.append(prefix)
+    data.append(key)
+    return data.sha3(.keccak256)
+  }
+
+}
+
+public enum DecryptError: Error {
+  case unsupportedKDF
+  case unsupportedCipher
+  case invalidCipher
+  case invalidPassword
+}
+
+public enum EncryptError: Error {
+  case invalidMnemonic
 }
 
 extension KeystoreKey: Codable {
