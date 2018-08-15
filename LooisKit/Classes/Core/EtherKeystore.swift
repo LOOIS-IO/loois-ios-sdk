@@ -7,12 +7,11 @@
 //
 
 import Foundation
-import TrustKeystore
 import TrustCore
 import Result
 import BigInt
 
-public final class EtherKeystore: Keystore {
+public final class EtherKeystore {
     
   private let datadir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
   
@@ -20,7 +19,7 @@ public final class EtherKeystore: Keystore {
   let keyStore: KeyStore
   
   public var wallets: [Wallet] {
-    return keyStore.wallets.filter { !$0.accounts.isEmpty }
+    return keyStore.wallets
   }
   
   public init(keysSubfolder: String = "/keystore") {
@@ -29,7 +28,7 @@ public final class EtherKeystore: Keystore {
   }
   
   public func wallet(for address: String) -> Wallet? {
-    return wallets.filter { $0.firstAccountEthereumAddress?.eip55String == address }.first
+    return keyStore.getWallet(for: address)
   }
   
   public func buildWallet(type: BuildType, completion: @escaping (Result<Wallet, KeystoreError>) -> Void) {
@@ -49,23 +48,38 @@ public final class EtherKeystore: Keystore {
     switch type {
     case let .keystore(wallet, password, newPassword):
       DispatchQueue.executeGlobal(execute: self.exportKeystore(wallet: wallet, password: password, newPassword: newPassword), main: completion)
-    case let .mnemonic(wallet, password):
-      DispatchQueue.executeGlobal(execute: self.exportMnemonic(wallet: wallet, password: password), main: completion)
     case let .privateKey(wallet, password):
       DispatchQueue.executeGlobal(execute: self.exportPrivateKey(wallet: wallet, password: password), main: completion)
     }
+  }
+  
+  public func delete(wallet: Wallet, password: String, completion: @escaping (Result<Bool, KeystoreError>) -> Void) {
+    DispatchQueue.executeGlobal(execute: self.delete(wallet: wallet, password: password), main: completion)
+  }
+  
+  public func update(wallet: Wallet, password: String, newPassword: String, completion: @escaping (Result<Bool, KeystoreError>) -> Void) {
+    DispatchQueue.executeGlobal(execute: self.update(wallet: wallet, password: password, newPassword: newPassword), main: completion)
   }
   
 }
 
 extension EtherKeystore {
   
-  fileprivate func exportMnemonic(wallet: Wallet, password: String) -> Result<String, KeystoreError> {
+  fileprivate func delete(wallet: Wallet, password: String) -> Result<Bool, KeystoreError> {
     do {
-      let mnemonic = try keyStore.exportMnemonic(wallet: wallet, password: password)
-      return .success(mnemonic)
+      try keyStore.delete(wallet: wallet, password: password)
+      return .success(true)
     } catch {
-      return .failure(.failedToDecryptKey)
+      return .failure(.failedToDeleteAccount)
+    }
+  }
+  
+  fileprivate func update(wallet: Wallet, password: String, newPassword: String) -> Result<Bool, KeystoreError> {
+    do {
+      try keyStore.update(wallet: wallet, password: password, newPassword: newPassword)
+      return .success(true)
+    } catch {
+      return .failure(.failedToUpdatePassword)
     }
   }
   
@@ -90,10 +104,7 @@ extension EtherKeystore {
   
   fileprivate func createWallet(newPassword: String) -> Result<Wallet, KeystoreError> {
     do {
-      let wallet = try keyStore.createWallet(
-        password: newPassword,
-        derivationPaths: [Coin.ethereum.derivationPath(at: 0)]
-      )
+      let wallet = try keyStore.createWallet(password: newPassword)
       return .success(wallet)
     } catch {
       return .failure(.failedToCreateWallet)

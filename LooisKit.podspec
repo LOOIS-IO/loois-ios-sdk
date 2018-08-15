@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "LooisKit"
-  s.version          = "0.0.4"
+  s.version          = "0.0.5"
   s.summary          = "A wrapper for Trust and loois-relay"
 
   s.description      = <<-DESC
@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
   s.swift_version = '4.1'
   s.module_name = 'LooisKit'
   s.platform = :ios, '10.0'
-  s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES' }
+  s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES', 'SWIFT_OPTIMIZATION_LEVEL' => '-Owholemodule' }
 
   s.subspec 'Relay' do |ss|
     ss.source_files = 'LooisKit/Classes/RelayAPI/*.swift'
@@ -24,7 +24,7 @@ Pod::Spec.new do |s|
   s.subspec 'Core' do |ss|
     ss.source_files = 'LooisKit/Classes/Core/**/*.swift'
     ss.dependency 'TrustCore', '0.2.0'
-    ss.dependency 'TrustKeystore', '0.5.0'
     ss.dependency 'Result'
+    ss.dependency 'CryptoSwift'
   end
 end

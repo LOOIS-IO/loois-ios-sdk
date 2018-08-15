@@ -10,7 +10,6 @@ import Foundation
 import Quick
 import Nimble
 import TrustCore
-import TrustKeystore
 import BigInt
 @testable import LooisKit
 
@@ -43,7 +42,7 @@ final class TransactionSignatureBuilderSpec: QuickSpec {
         print("-------\(meta?.exampleIndex ?? -1)-------", wallet?.identifier ?? "wallet is being prepared")
         expect(wallet).toEventuallyNot(beNil(), timeout: timeout)
         
-        if let address = wallet.firstAccountEthereumAddress?.eip55String {
+        if let address = wallet.address {
           expect(keystore.wallet(for: address)?.identifier).to(equal(wallet.identifier))
         }
       })

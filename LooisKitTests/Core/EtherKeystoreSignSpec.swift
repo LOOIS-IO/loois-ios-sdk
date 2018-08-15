@@ -10,7 +10,6 @@ import Foundation
 import Quick
 import Nimble
 import TrustCore
-import TrustKeystore
 import BigInt
 @testable import LooisKit
 

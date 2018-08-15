@@ -10,7 +10,6 @@
 import Foundation
 import BigInt
 import TrustCore
-import TrustKeystore
 
 public enum SignBuildError: Error {
   case invalidSignArguments
