@@ -189,7 +189,6 @@
 		FB32694820FDEC460037ED22 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				FB10EA63211AD69D00085FC0 /* Keystore */,
 				FB7E0FB7210096D90091BBAB /* Core */,
 				FB32694520FDE8B60037ED22 /* RelayAPI */,
 			);
@@ -219,6 +218,7 @@
 		FB7E0FB7210096D90091BBAB /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				FB10EA63211AD69D00085FC0 /* Keystore */,
 				FB49B0A72101810B00359AC6 /* Utils */,
 				FB7E0FB321007F6F0091BBAB /* BuildType.swift */,
 				FB59499A2102E3730061045A /* ExportType.swift */,
