@@ -17,4 +17,5 @@ public struct RawTransaction: SignTransaction {
   public let value: BigInt
   public let to: EthereumAddress?
   public let data: Data
+  public let functionRaw: Data
 }

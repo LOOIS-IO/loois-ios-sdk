@@ -62,7 +62,7 @@ public final class KeyStore {
     }
     let hdWallet = HDWallet(mnemonic: mnemonic, passphrase: passphrase)
     let privateKey = hdWallet.getKey(at: derivationPath)
-    return try self.import(privateKey: privateKey, password: encryptPassword)
+    return try self.import(privateKey: privateKey, password: encryptPassword, mnemonic: mnemonic)
   }
   
   /// Imports an encrypted JSON key.
@@ -74,7 +74,7 @@ public final class KeyStore {
   /// - Returns: new account
   public func `import`(json: Data, password: String, newPassword: String) throws -> Wallet {
     let key = try JSONDecoder().decode(KeystoreKey.self, from: json)
-    guard let address = key.address, getWallet(for: address) != nil else {
+    guard let address = key.address, getWallet(for: address) == nil else {
       throw Error.accountAlreadyExists
     }
     var privateKeyData = try key.decrypt(password: password)
@@ -92,8 +92,9 @@ public final class KeyStore {
   /// - Parameters:
   ///   - privateKey: private key to import
   ///   - password: password to use for the imported private key
+  ///   - mnemonic: mnemonic phrase to import
   /// - Returns: new wallet
-  public func `import`(privateKey: PrivateKey, password: String) throws -> Wallet {
+  public func `import`(privateKey: PrivateKey, password: String, mnemonic: String? = nil) throws -> Wallet {
     let address = privateKey.publicKey(for: .ethereum).address
     guard getWallet(for: address.data.hexString) == nil else {
         throw Error.accountAlreadyExists
@@ -101,6 +102,8 @@ public final class KeyStore {
     let newKey = try KeystoreKey(password: password, key: privateKey)
     let url = makeAccountURL(for: address)
     let wallet = Wallet(keyURL: url, key: newKey)
+    wallet.mnemonic = mnemonic
+    wallet.password = password
     wallets.append(wallet)
     
     try save(wallet: wallet, in: keyDirectory)

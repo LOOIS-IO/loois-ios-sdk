@@ -24,6 +24,12 @@ public final class Wallet: Hashable {
   /// Account public address
   public var address: String?
   
+  /// A Temprory mnemonic at build time
+  public var mnemonic: String?
+  
+  /// A Temprory password at build time
+  public var password: String?
+  
   /// Creates a `Wallet` from an encrypted key.
   public init(keyURL: URL, key: KeystoreKey) {
     identifier = keyURL.lastPathComponent

@@ -19,6 +19,7 @@ public protocol SignTransaction {
   var data: Data { get }
   var gasPrice: BigInt { get }
   var gasLimit: BigInt { get }
+  var functionRaw: Data { get }
 }
 
 protocol Signer {

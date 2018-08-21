@@ -58,7 +58,8 @@ public enum TransactionSignatureBuilder {
                             gasLimit: gasLimit,
                             value: 0,
                             to: contractAddress,
-                            data: encoder.encodedData)
+                            data: encoder.encodedData,
+                            functionRaw: encoder.function.signature)
       
     case let .transferETH(amount, gasPrice, gasLimit, nonce, toAddress):
       
@@ -69,7 +70,8 @@ public enum TransactionSignatureBuilder {
                             gasLimit: gasLimit,
                             value: amount,
                             to: toAddress,
-                            data: "0x".data(using: .utf8)!)
+                            data: "0x".data(using: .utf8)!,
+                            functionRaw: "0x".data(using: .utf8)!)
       
       
     case let .transferERC20Token(amount, gasPrice, gasLimit, nonce, contractAddress, toAddress):
@@ -83,7 +85,8 @@ public enum TransactionSignatureBuilder {
                             gasLimit: gasLimit,
                             value: 0,
                             to: contractAddress,
-                            data: encoder.encodedData)
+                            data: encoder.encodedData,
+                            functionRaw: encoder.function.signature)
       
     case let .wethToEth(amount, gasPrice, gasLimit, nonce, contractAddress):
       
@@ -95,7 +98,8 @@ public enum TransactionSignatureBuilder {
                             gasLimit: gasLimit,
                             value: 0,
                             to: contractAddress,
-                            data: encoder.encodedData)
+                            data: encoder.encodedData,
+                            functionRaw: encoder.function.signature)
       
     case let .ethToWeth(amount, gasPrice, gasLimit, nonce, contractAddress):
       
@@ -107,7 +111,8 @@ public enum TransactionSignatureBuilder {
                             gasLimit: gasLimit,
                             value: amount,
                             to: contractAddress,
-                            data: encoder.encodedData)
+                            data: encoder.encodedData,
+                            functionRaw: encoder.function.signature)
       
     case let .approve(amount, gasPrice, gasLimit, nonce, contractAddress, delegateAddress):
       
@@ -120,7 +125,8 @@ public enum TransactionSignatureBuilder {
                             gasLimit: gasLimit,
                             value: 0,
                             to: contractAddress,
-                            data: encoder.encodedData)
+                            data: encoder.encodedData,
+                            functionRaw: encoder.function.signature)
       
     case let .cancelOrder(order, gasPrice, gasLimit, nonce, contractAddress):
       
@@ -131,7 +137,8 @@ public enum TransactionSignatureBuilder {
                             gasLimit: gasLimit,
                             value: 0,
                             to: contractAddress,
-                            data: order.encodedData)
+                            data: order.encodedData,
+                            functionRaw: order.encodedData)
       
     case let .cancelAllOrder(timestamp, gasPrice, gasLimit, nonce, contractAddress):
       
@@ -143,7 +150,8 @@ public enum TransactionSignatureBuilder {
                             gasLimit: gasLimit,
                             value: 0,
                             to: contractAddress,
-                            data: encoder.encodedData)
+                            data: encoder.encodedData,
+                            functionRaw: encoder.function.signature)
       
     case let .cancelOrdersByTokenPair(timestamp, gasPrice, gasLimit, nonce, contractAddress, tokenAAddress, tokenBAddress):
       
@@ -159,7 +167,8 @@ public enum TransactionSignatureBuilder {
                             gasLimit: gasLimit,
                             value: 0,
                             to: contractAddress,
-                            data: encoder.encodedData)
+                            data: encoder.encodedData,
+                            functionRaw: encoder.function.signature)
     }
   }
   
