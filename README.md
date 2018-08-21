@@ -15,7 +15,7 @@ Loois iOS SDK提供了常规的以太坊钱包功能和基于[路印协议](http
 - [x] 导出钱包(#导出钱包)
   - [x] [导出私钥](#导出私钥)
   - [x] [导出助记符](#导出助记符)
-  - [x] [导出Keystore文件](#导出Keystore)
+  - [x] [导出Keystore文件](#导出Keystore文件)
 - [x] [交易签名](#交易签名)
 
 ### Etherum API
@@ -73,7 +73,7 @@ pod 'LooisKit' ~> '0.0.5'
   
   ```
   
-#### 导出Keystore
+#### 导出Keystore文件
   
   ```swift
   
