@@ -49,7 +49,7 @@ final class EtherKeystoreSignSpec: QuickSpec {
         let encoder = FunctionRawEncoder.transfer(to: EthereumAddress(string: "0xf494B631F83909dd19BA55a7e3d55491EaD875cC")!,
                                                   amount: 1_000_000_000_000_000)
         
-        let st = RawTransaction(nonce: 539, gasPrice: 5140490000, gasLimit: 60000, value: 0, to: contractAddress, data: encoder.encodedData)
+        let st = RawTransaction(nonce: 539, gasPrice: 5140490000, gasLimit: 60000, value: 0, to: contractAddress, data: encoder.encodedData, functionRaw: encoder.function.signature)
 
         let signed = HomesteadSigner().sign(transaction: st, wallet: wallet, password: "12345678")
         expect(signed.error).to(beNil())

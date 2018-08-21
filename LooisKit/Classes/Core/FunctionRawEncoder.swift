@@ -52,3 +52,13 @@ public enum FunctionRawEncoder {
     return encoder.data
   }
 }
+
+public extension Function {
+  
+  public var signature: Data {
+    let encoder = ABIEncoder()
+    try! encoder.encode(signature: description)
+    return encoder.data
+  }
+  
+}
